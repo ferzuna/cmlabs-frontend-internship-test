@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Meal Detail</title>
+    <link rel="stylesheet" href="https://unpkg.com/tailwindcss@2.2.19/dist/tailwind.min.css"/>
+
+    <link href="https://fonts.googleapis.com/css?family=Work+Sans:200,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body class="bg-white text-gray-600 work-sans leading-normal text-base tracking-normal">
+  <nav id="header" class="w-full z-30 top-0 py-1 border-b border-gray-400">
+    <div class="w-full container mx-auto flex flex-wrap items-center justify-between mt-0 px-6 py-3">
+      <a class="flex items-center tracking-wide no-underline hover:no-underline font-bold text-gray-800 text-xl " href="./index.html">
+          DAPUR UMAMI
+      </a>
+      <label for="menu-toggle" class="cursor-pointer md:hidden block">
+          <svg class="fill-current text-gray-900" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
+              <title>menu</title>
+              <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"></path>
+          </svg>
+      </label>
+      <input class="hidden" type="checkbox" id="menu-toggle" />
+  
+      <div class="hidden md:flex md:items-center justify-between md:w-auto w-full order-3 md:order-1" id="menu">
+          <nav>
+              <ul class="md:flex items-center justify-between text-base text-gray-700 pt-4 md:pt-0">
+                  <li><a class="inline-block no-underline hover:text-black hover:underline py-2 px-4" href="category.html">Category</a></li>
+                  <li><a class="inline-block no-underline hover:text-black hover:underline py-2 px-4" href="#">About</a></li>
+              </ul>
+          </nav>
+      </div>
+    </div>
+  </nav>
+  <section class="bg-white py-8 px-5">
+
+    <div class="container mx-auto flex items-center flex-wrap pt-4 pb-12 ">
+
+        <nav id="store" class="w-full z-30 top-0 px-6 py-1">
+          <nav class="flex mb-4" aria-label="Breadcrumb">
+            <ol class="inline-flex items-center space-x-1 md:space-x-3">
+              <li class="inline-flex items-center">
+                <a
+                  href="index.html"
+                  class="inline-flex items-center text-sm font-medium text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white">
+                  <svg
+                    class="w-4 h-4 mr-2"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path
+                      d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z"></path>
+                  </svg>
+                  Home
+                </a>
+              </li>
+              <li>
+                <div class="flex items-center">
+                  <svg
+                    class="w-6 h-6 text-gray-400"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path
+                      fill-rule="evenodd"
+                      d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+                      clip-rule="evenodd"></path>
+                  </svg>
+                  <a
+                    href="category.html"
+                    class="ml-1 text-sm font-medium text-gray-700 hover:text-gray-900 md:ml-2 dark:text-gray-400 dark:hover:text-white"
+                    >Category</a
+                  >
+                </div>
+              </li>
+              <li>
+                <div class="flex items-center">
+                  <svg
+                    class="w-6 h-6 text-gray-400"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path
+                      fill-rule="evenodd"
+                      d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+                      clip-rule="evenodd"></path>
+                  </svg>
+                  <a id="category-name"
+                    href="#"
+                    class="ml-1 text-sm font-medium text-gray-700 hover:text-gray-900 md:ml-2 dark:text-gray-400 dark:hover:text-white"
+                    >Category</a
+                  >
+                </div>
+              </li>
+              <li aria-current="page">
+                <div class="flex items-center">
+                  <svg
+                    class="w-6 h-6 text-gray-400"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path
+                      fill-rule="evenodd"
+                      d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+                      clip-rule="evenodd"></path>
+                  </svg>
+                  <span id="meal-name" class="ml-1 text-sm font-medium text-gray-500 md:ml-2 dark:text-gray-400"></span>
+                </div>
+              </li>
+            </ol>
+          </nav>
+          <h2 id="category-detail"
+            class="mb-4 text-3xl font-extrabold leading-none tracking-tight text-gray-900 md:text-4xl dark:text-white">
+            
+          </h2>
+        </nav>
+        <div id="meal-detail" class="max-w-2xl mx-auto">
+          <div id="meal-info" class="mb-6"></div>
+          <div id="meal-recipe" class="mb-6"></div>
+          <div id="meal-instructions" class="mb-6"></div>
+          <iframe id="meal-youtube" class="w-full h-80 aspect-video object-cover mb-4" src="" allowfullscreen></iframe>
+        </div>
+        
+
+
+    </div>
+
+  </section>
+  
+  
+  
+
+  <script>
+    const urlParams = new URLSearchParams(window.location.search);
+    const mealId = urlParams.get('mealId');
+
+    if (!mealId) {
+      // Handle jika parameter meal-id tidak ada
+      const errorMessage = document.createElement('p');
+      errorMessage.textContent = 'Meal not found.';
+      errorMessage.classList.add('text-red-500', 'font-bold');
+      document.getElementById('meal-detail').appendChild(errorMessage);
+    } else {
+      const apiUrl = `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${mealId}`;
+
+      fetch(apiUrl)
+        .then(response => response.json())
+        .then(data => {
+          const meal = data.meals[0];
+
+          // Tampilkan gambar meal
+          const mealImage = document.createElement('img');
+          mealImage.src = meal.strMealThumb;
+          mealImage.alt = meal.strMeal;
+          mealImage.classList.add('w-full', 'h-80', 'aspect-square', 'object-cover', 'mb-4');
+          document.getElementById('meal-info').appendChild(mealImage);
+
+          // Tampilkan judul/nama meal
+          const mealName = document.getElementById('category-detail');
+          mealName.textContent = meal.strMeal;
+          
+          const recipeTitle = document.createElement('h3');
+          recipeTitle.textContent = 'Ingredients';
+          recipeTitle.classList.add('text-lg', 'font-bold', 'mb-2');
+          document.getElementById('meal-recipe').appendChild(recipeTitle);
+
+          const mealRecipe = document.createElement('ul');
+          mealRecipe.classList.add('list-disc', 'list-inside');
+
+          for (let i = 1; i <= 20; i++) {
+            const ingredient = meal['strIngredient' + i];
+            const measure = meal['strMeasure' + i];
+
+            if (ingredient && ingredient.trim() !== '') {
+              const listItem = document.createElement('li');
+              listItem.textContent = `${measure} ${ingredient}`;
+              mealRecipe.appendChild(listItem);
+            }
+          }
+
+          document.getElementById('meal-recipe').appendChild(mealRecipe);
+
+          // Tampilkan instructions (instruksi)
+          const instructionsTitle = document.createElement('h3');
+          instructionsTitle.textContent = 'Instructions';
+          instructionsTitle.classList.add('text-lg', 'font-bold', 'mb-2');
+          document.getElementById('meal-instructions').appendChild(instructionsTitle);
+
+          const mealInstructions = document.createElement('ol');
+          mealInstructions.classList.add('list-decimal', 'list-inside');
+
+          // Split instruksi menjadi langkah-langkah
+          const steps = meal.strInstructions.split('\r\n');
+
+          // Membuat elemen <li> untuk setiap langkah
+          steps.forEach((step) => {
+            if (step.trim() !== '' && step.includes('.')) {
+              const listItem = document.createElement('li');
+              
+              listItem.textContent = step.trim();
+              mealInstructions.appendChild(listItem);
+            }
+          });
+
+          document.getElementById('meal-instructions').appendChild(mealInstructions);
+
+          // Tampilkan YouTube embedded
+          const youtubeTitle = document.createElement('h3');
+          youtubeTitle.textContent = 'YouTube Video';
+          youtubeTitle.classList.add('text-lg', 'font-bold', 'mb-2');
+          document.getElementById('meal-youtube').appendChild(youtubeTitle);
+
+          const youtubeEmbed = document.createElement('div');
+          youtubeEmbed.classList.add('aspect-w-16', 'aspect-h-9');
+
+          const youtubeIframe = document.getElementById('meal-youtube');
+          youtubeIframe.src = `https://www.youtube.com/embed/${meal.strYoutube.slice(-11)}`;
+          youtubeIframe.title = 'YouTube video player';
+          youtubeIframe.allowFullscreen = true;
+
+
+          // Tampilkan breadcrumbs
+          const categoryName = urlParams.get('category');
+          const categoryNameElement = document.getElementById('category-name');
+          categoryNameElement.textContent = decodeURIComponent(meal.strCategory);
+          categoryNameElement.addEventListener('click', () => {
+            redirectToCategoryDetail(meal.strCategory)
+          })
+
+          const mealNameElement = document.getElementById('meal-name');
+          mealNameElement.textContent = meal.strMeal;
+        })
+        .catch(error => {
+          console.error('Error:', error);
+        });
+    }
+
+    function redirectToCategoryDetail(categoryName) {
+      window.location.href = 'category-detail.html?category=' + encodeURIComponent(categoryName);
+    }
+  </script>
+</body>
+</html>

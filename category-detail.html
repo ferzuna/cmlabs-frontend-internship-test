@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Halaman Category Detail</title>
+  <link rel="stylesheet" href="https://unpkg.com/tailwindcss@2.2.19/dist/tailwind.min.css"/>
+
+  <link href="https://fonts.googleapis.com/css?family=Work+Sans:200,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body class="bg-white text-gray-600 work-sans leading-normal text-base tracking-normal">
+  <nav id="header" class="w-full z-30 top-0 py-1 border-b border-gray-400">
+    <div class="w-full container mx-auto flex flex-wrap items-center justify-between mt-0 px-6 py-3">
+      <a class="flex items-center tracking-wide no-underline hover:no-underline font-bold text-gray-800 text-xl " href="./index.html">
+          DAPUR UMAMI
+      </a>
+      <label for="menu-toggle" class="cursor-pointer md:hidden block">
+          <svg class="fill-current text-gray-900" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
+              <title>menu</title>
+              <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"></path>
+          </svg>
+      </label>
+      <input class="hidden" type="checkbox" id="menu-toggle" />
+  
+      <div class="hidden md:flex md:items-center justify-between md:w-auto w-full order-3 md:order-1" id="menu">
+          <nav>
+              <ul class="md:flex items-center justify-between text-base text-gray-700 pt-4 md:pt-0">
+                  <li><a class="inline-block no-underline hover:text-black hover:underline py-2 px-4" href="category.html">Category</a></li>
+                  <li><a class="inline-block no-underline hover:text-black hover:underline py-2 px-4" href="#">About</a></li>
+              </ul>
+          </nav>
+      </div>
+    </div>
+  </nav>
+
+  <section class="bg-white py-8 px-5">
+
+    <div class="container mx-auto flex items-center flex-wrap pt-4 pb-12 ">
+
+        <nav id="store" class="w-full z-30 top-0 px-6 py-1">
+          <nav class="flex mb-4" aria-label="Breadcrumb">
+            <ol class="inline-flex items-center space-x-1 md:space-x-3">
+              <li class="inline-flex items-center">
+                <a
+                  href="index.html"
+                  class="inline-flex items-center text-sm font-medium text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white">
+                  <svg
+                    class="w-4 h-4 mr-2"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path
+                      d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z"></path>
+                  </svg>
+                  Home
+                </a>
+              </li>
+              <li>
+                <div class="flex items-center">
+                  <svg
+                    class="w-6 h-6 text-gray-400"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path
+                      fill-rule="evenodd"
+                      d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+                      clip-rule="evenodd"></path>
+                  </svg>
+                  <a
+                    href="category.html"
+                    class="ml-1 text-sm font-medium text-gray-700 hover:text-gray-900 md:ml-2 dark:text-gray-400 dark:hover:text-white"
+                    >Category</a
+                  >
+                </div>
+              </li>
+              <li aria-current="page">
+                <div class="flex items-center">
+                  <svg
+                    class="w-6 h-6 text-gray-400"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path
+                      fill-rule="evenodd"
+                      d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+                      clip-rule="evenodd"></path>
+                  </svg>
+                  <span id="category-name" class="ml-1 text-sm font-medium text-gray-500 md:ml-2 dark:text-gray-400"></span>
+                </div>
+              </li>
+            </ol>
+          </nav>
+          <h2 id="category-detail"
+            class="mb-4 text-3xl font-extrabold leading-none tracking-tight text-gray-900 md:text-4xl dark:text-white">
+            Category Detail
+          </h2>
+        </nav>
+        <div class="flex">
+            <div id="meal-list" class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mb-4">
+                
+            </div>
+        </div>
+        
+
+
+    </div>
+
+  </section>
+
+  <script>
+    const urlParams = new URLSearchParams(window.location.search);
+    const categoryName = urlParams.get('category'); 
+    console.log(categoryName)
+
+    if (!categoryName) {
+      // Handle jika parameter category-name tidak ada
+      const errorMessage = document.createElement('p');
+      errorMessage.textContent = 'Category not found.';
+      errorMessage.classList.add('text-red-500', 'font-bold');
+      document.body.appendChild(errorMessage);
+    } else {
+      const apiUrl = `https://www.themealdb.com/api/json/v1/1/filter.php?c=${categoryName}`;
+
+      fetch(apiUrl)
+        .then(response => response.json())
+        .then(data => {
+          const meals = data.meals;
+          const mealListElement = document.getElementById('meal-list');
+
+          
+
+          meals.forEach(meal => {
+            const mealCard = document.createElement('div');
+
+            mealCard.innerHTML = `
+
+            <div class="h-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+                <a href="#">
+                    <img class="rounded-t-lg" src="${meal.strMealThumb}" alt="${meal.strMeal}" />
+                </a>
+                <div class="p-5">
+                    <a href="#">
+                        <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">${meal.strMeal}</h5>
+                    </a>
+                    <p class="mb-3 font-normal text-gray-700 dark:text-gray-400"></p>
+                    <a href="#" class="button-detail inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                        View Detail
+                        <svg aria-hidden="true" class="w-4 h-4 ml-2 -mr-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+                    </a>
+                </div>
+            </div>
+            `;
+            mealCard.addEventListener('click', () => {
+              redirectToMealDetail(meal.idMeal);
+            });
+
+            mealListElement.appendChild(mealCard);
+          });
+        })
+        .catch(error => {
+          console.error('Error:', error);
+        });
+    }
+
+    function redirectToMealDetail(mealId) {
+      window.location.href = 'meal-detail.html?mealId=' + encodeURIComponent(mealId);
+    }
+
+    const mealHeader = document.getElementById('category-detail');
+    mealHeader.textContent = categoryName;
+    const categoryNameElement = document.getElementById('category-name');
+    categoryNameElement.textContent = decodeURIComponent(categoryName);
+  </script>
+</body>
+</html>
